@@ -30,4 +30,22 @@
 
  2022.01.11
 
-
+## 3. How to Routing in JSX
+- npm install react-router-dom@5 write this in your terminal and download router library
+- go to your index.js file and write import { BrowserRouter } from "react-router-dom" top of the file and, 
+<br> cover  < App /> components with < BrowserRouter > 
+<br> ex)
+<br> < BrowserRouter >
+<br> < App />
+<br> </ BrowserRouter >
+- Next, go to App.js file and write import { Link, Route, Switch } from "react-router-dom" top of the file.
+- Cover any components that you want to make as a route with < Route > tag.
+<br> ex) 
+<br> < Route >
+<br> < div > hello World </ div >
+<br> </ Route >
+- write the path inside of tag 
+<br> ex)
+<br>  < Route path = { " / "  >
+<br> < div > hello World </ div >
+<br> </ Route >
