@@ -11,22 +11,30 @@ import {
 } from "react-bootstrap";
 import React, { useState } from "react";
 import Data from "./data.js";
+import { Link, Route, Switch } from "react-router-dom";
+import Detail from "./Detail.js";
 
 function App() {
   let [shoes, shoes변경] = useState(Data);
 
   return (
     <div className="App">
-      <Navbars />
-      <Jumbo />
-
-      <div className="container">
-        <div className="row">
-          {shoes.map((a, i) => {
-            return <Card shoes={shoes[i]} i={i} key={i} />;
-          })}
+      <Route exact path={"/"}>
+        <Navbars />
+        <Jumbo />
+        <div className="container">
+          <div className="row">
+            {shoes.map((a, i) => {
+              return <Card shoes={shoes[i]} i={i} key={i} />;
+            })}
+          </div>
         </div>
-      </div>
+      </Route>
+
+      <Route path={"/detail"}>
+        <Navbars />
+        <Detail shoes={shoes} />
+      </Route>
     </div>
   );
 }
@@ -39,8 +47,12 @@ function Navbars() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
+            <Nav.Link>
+              <Link to="/"> Home </Link>
+            </Nav.Link>
+            <Nav.Link>
+              <Link to="/detail">Detail</Link>
+            </Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
