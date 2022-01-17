@@ -11,7 +11,7 @@ import {
 } from "react-bootstrap";
 import React, { useState } from "react";
 import Data from "./data.js";
-import { Link, Route, Switch } from "react-router-dom";
+import { Link, Route, Switch, useHistory, useParams } from "react-router-dom";
 import Detail from "./Detail.js";
 
 function App() {
@@ -31,7 +31,7 @@ function App() {
         </div>
       </Route>
 
-      <Route path={"/detail"}>
+      <Route path={"/detail/:id"}>
         <Navbars />
         <Detail shoes={shoes} />
       </Route>
