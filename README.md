@@ -51,3 +51,14 @@
 <br> </ Route >
 
 2022.01.12
+
+## 4. How to make 1000's of pages by using URL parmeter 
+- write ' import { useParams } from "react-router-dom" 'on the top of the file that you are going to use URL parameter.
+- store in valuable execute the useParams; 
+<br> ex) let id =useParams();
+- wherever you write id, { id' num } will remain after 'id'
+<br> ex) if the URL is localhost:3000/detail/1
+<br> props.shoes[id].title =>
+<br> props.shoes[1].title
+
+2022.01.17
