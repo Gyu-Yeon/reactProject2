@@ -1,0 +1,25 @@
+$mainColor: #ca2323;
+
+.title {
+  color: $mainColor;
+}
+
+@mixin new {
+  background-color: #eeeeee;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 500px;
+  width: 100%;
+  margin: auto;
+  p {
+    margin-bottom: 0;
+  }
+}
+.myAlert {
+  @include new();
+}
+
+.myAlert2 {
+  @extend .myAlert;
+  background-color: #ffe591;
+}

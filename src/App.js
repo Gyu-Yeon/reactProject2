@@ -13,6 +13,7 @@ import React, { useState } from "react";
 import Data from "./data.js";
 import { Link, Route, Switch, useHistory, useParams } from "react-router-dom";
 import Detail from "./Detail.js";
+import axios from "axios";
 
 function App() {
   let [shoes, shoes변경] = useState(Data);
@@ -28,6 +29,22 @@ function App() {
               return <Card shoes={shoes[i]} i={i} key={i} />;
             })}
           </div>
+          <button
+            className="btn btn-primary"
+            onClick={() => {
+              axios
+                .get(" https://codingapple1.github.io/shop/data2.json")
+                .then(result => {
+                  console.log(result.data);
+                  shoes변경([...shoes, ...result.data]);
+                })
+                .catch(() => {
+                  console.log("fail");
+                });
+            }}
+          >
+            더보기
+          </button>
         </div>
       </Route>
 
@@ -47,11 +64,11 @@ function Navbars() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link>
-              <Link to="/"> Home </Link>
+            <Nav.Link as={Link} to="/">
+              Home
             </Nav.Link>
-            <Nav.Link>
-              <Link to="/detail">Detail</Link>
+            <Nav.Link as={Link} to="/detail">
+              Detail
             </Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
@@ -73,14 +90,14 @@ function Navbars() {
 
 function Jumbo() {
   return (
-    <div class="jumbotron background">
-      <h1 class="display-4">20% Season Off</h1>
-      <p class="lead">
+    <div className="jumbotron background">
+      <h1 className="display-4">20% Season Off</h1>
+      <p className="lead">
         This is a simple hero unit, a simple jumbotron-style component for
         calling extra attention to featured content or information.
       </p>
 
-      <a class="btn btn-primary btn-lg" href="#" role="button">
+      <a className="btn btn-primary btn-lg" href="#" role="button">
         Learn more
       </a>
     </div>

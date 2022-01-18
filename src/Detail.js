@@ -1,11 +1,35 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
+import styled from "styled-components";
+import "./Detail.scss";
+
+let box = styled.div`
+  padding: 20px;
+`;
 
 function Detail(props) {
   let { id } = useParams();
+  let [show, showChange] = useState(true);
+  useEffect(() => {
+    let timer = setTimeout(() => {
+      showChange(false);
+    }, 2000);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [show]);
 
   return (
     <div className="container">
+      <div className="title-box">
+        <h4 className="title">Detail</h4>
+      </div>
+      {show === true ? (
+        <div className="myAlert2">
+          <p>LAST ONE!!!!</p>
+        </div>
+      ) : null}
+
       <div className="row">
         <div className="col-md-6">
           <img
