@@ -113,8 +113,7 @@
   <br> ------Component3
 - send data from Component1 to Component2 by using props.
   <br> ex)
-  <br> <Detail shoes={shoes} />
-  <br>
+  <br> < Detail shoes={shoes} /> 
   <br> function Detail(props) {
   <br> return (
   <br> < h2 > {props.shoes} </ h2 >
@@ -123,7 +122,9 @@
 - send data from Component2 to Component3 by using same method.
   <br> ex)
   <br> function Info(props) {
-  <br> return <p> 재고: {props.left[0]} </p>;
+  <br> return < p > 재고: {props.left[0]} </ p >
   <br> }
-  <br> <Info left={props.left} />
-  2022.01.19
+  <br> < Info left={props.left} />
+  
+  
+    2022.01.19
