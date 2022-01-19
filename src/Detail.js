@@ -41,11 +41,17 @@ function Detail(props) {
           <h4 className="pt-5">{props.shoes[id].title}</h4>
           <p>{props.shoes[id].content}</p>
           <p>{props.shoes[id].price}</p>
+
+          <Info left={props.left} />
           <button className="btn btn-danger">주문하기</button>
         </div>
       </div>
     </div>
   );
+}
+
+function Info(props) {
+  return <p> 재고: {props.left[0]} </p>;
 }
 
 export default Detail;

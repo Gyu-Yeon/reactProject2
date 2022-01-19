@@ -17,6 +17,7 @@ import axios from "axios";
 
 function App() {
   let [shoes, shoes변경] = useState(Data);
+  let [left, left변경] = useState([10, 11, 12]);
 
   return (
     <div className="App">
@@ -50,7 +51,7 @@ function App() {
 
       <Route path={"/detail/:id"}>
         <Navbars />
-        <Detail shoes={shoes} />
+        <Detail shoes={shoes} left={left} />
       </Route>
     </div>
   );

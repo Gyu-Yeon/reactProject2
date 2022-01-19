@@ -84,4 +84,46 @@
 
 ## 5. useEffect
 
--
+- useEffect is activate when the page is loaded.
+- If you use this function with useState, useEffect will activate whenever useState is changing.
+- First write import React, { useEffect, useState } from "react"; on the top of relevant file.
+- How to make useEffect
+  <br>ex)
+  <br> let [show, showChange] = useState(true);
+  <br> useEffect(() => {
+  <br> let timer = setTimeout(() => {
+  <br> showChange(false);
+  <br> }, 2000);
+  <br> return () => {
+  <br> clearTimeout(timer);
+  <br> };
+  <br> });
+- after load this page, 2secs later 'show' will turn in to false and the div that display it by
+  <br> changing status of show, will disappear.
+
+  2022.01.18
+
+## 6. how to send data from main component to nested component
+
+- first you need 3 or more components.
+- inside of main components, make a components that has another components inside of it.
+  <br> ex)
+  <br>-----------Component1
+  <br>---------Component2
+  <br> ------Component3
+- send data from Component1 to Component2 by using props.
+  <br> ex)
+  <br> <Detail shoes={shoes} />
+  <br>
+  <br> function Detail(props) {
+  <br> return (
+  <br> < h2 > {props.shoes} </ h2 >
+  <br> < Info />
+  <br> )}
+- send data from Component2 to Component3 by using same method.
+  <br> ex)
+  <br> function Info(props) {
+  <br> return <p> 재고: {props.left[0]} </p>;
+  <br> }
+  <br> <Info left={props.left} />
+  2022.01.19
